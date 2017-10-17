@@ -139,9 +139,9 @@ function riemannIntegral(f::Function,a,b)
     #=Esta es la implementacion del metodo de Riemann. subdividiremos el intervalo [a,b] en 200 intervalos, para obtener un valor mas exacto de la integral. Comenzamos guardando en una variable el tamaño delta de cada subintervalo. definimos las variables necesarias y comenzamos a iterar. cada ciclo del for corresponde a trabajar con uno de los 200 subintervalos. para cada uno de ellos se deben guardar los extremos del intervalo y el valor a la mitad en variables, y luego sumar a la integral la funcion evaluada en el punto medio por la longitud del intervalo delta. Una vez que se ha completado el for se regresa el valor de la integral=#
     n = 200
     delta = (b-a)/n
-    xNext
-    xBefore
-    xMiddle
+    xNext=0
+    xBefore=0
+    xMiddle=0
     
     integral = 0
     
@@ -159,8 +159,8 @@ end
 function trapezoidIntegral(f::Function,a,b)
     n = 200
     delta = (b-a)/n
-    xNext
-    xBefore
+    xNext=0
+    xBefore=0
     
     integral = 0
     
@@ -178,9 +178,9 @@ end
 function simpsonsIntegral(f::Function,a,b)
     n = 200
     delta = (b-a)/n
-    xBefore
-    xMiddle
-    xAfter
+    xBefore=0
+    xMiddle=0
+    xAfter=0
     
     integral = 0
     
