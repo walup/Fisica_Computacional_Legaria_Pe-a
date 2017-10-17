@@ -47,7 +47,7 @@ function newtonsMethodInterval(f::Function,g::Function,interval)
     values = []
     
     for i in 1:length(interval)
-       push!(values,newtonMethod(f,g,interval[i]))
+       push!(values,newtonsMethod(f,g,interval[i]))
     end
     return values
 end
@@ -57,7 +57,7 @@ function newtonsMethodInterval(f::Function,interval)
 values = []
     
     for i in 1:length(interval)
-       push!(values,newtonMethod(f,interval[i]))
+       push!(values,newtonsMethod(f,interval[i]))
     end
     return values
 end
@@ -95,7 +95,7 @@ function newtonsMethodSpitRoots(f::Function,g::Function,interval,epsilon)
     values = []
     
     for i in 1:length(interval)
-       push!(values,newtonMethod(f,g,interval[i]))
+       push!(values,newtonsMethod(f,g,interval[i]))
     end
     
     #=Ahora tenemos que buscar las raices distintas con nuestro arreglo creado, asi que usaremos la funcion auxiliar searchRoots=#
@@ -118,7 +118,7 @@ function newtonsMethodSpitRoots(f::Function,interval,epsilon)
     values = []
     
     for i in 1:length(interval)
-       push!(values,newtonMethod(f,interval[i]))
+       push!(values,newtonsMethod(f,interval[i]))
     end
     
     #=Ahora tenemos que buscar las raices distintas con nuestro arreglo creado, asi que usaremos la funcion auxiliar searchRoots=#
@@ -237,7 +237,7 @@ function implicitEuler(f::Function,t0::Float64,tf::Float64,x0::Float64,delta::Fl
         
         #Se aproxima el punto siguiente ocn el método de Newton y se guarda en la variable newX
         
-        newX = newtonMethod(x->subs(g(x,t,a),t=>last(tArray),a=>last(xArray)),last(xArray))
+        newX = newtonsMethod(x->subs(g(x,t,a),t=>last(tArray),a=>last(xArray)),last(xArray))
         
         #=Una vez que se tiene el X nuevo agregamos el nuevo punto calculado con euler al arreglo x=#
         
